@@ -11,19 +11,24 @@ class LocationService {
 
   Future<Position> getLocation() async {
     final currentLocation = Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.best,
+      desiredAccuracy: LocationAccuracy.high,
       timeLimit: const Duration(seconds: 30),
     );
     return currentLocation;
   }
 
   Future<String> getLocationLocality({required lat, required lon}) async {
-    final getLocationName = await placemarkFromCoordinates(
-      lat,
-      lon,
-      localeIdentifier: "en",
-    );
+    try {
+      final getLocationName = await placemarkFromCoordinates(
+        lat,
+        lon,
+        localeIdentifier: "en",
+      );
 
-    return getLocationName[0].locality ?? "Location Unknown";
+      return getLocationName[0].locality ?? "Location Unknown";
+    } catch (e) {
+      print(e);
+      return "Unknown Location";
+    }
   }
 }
