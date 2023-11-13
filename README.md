@@ -5,7 +5,7 @@ My first app using flutter includes some features like fetching using some nativ
 ## Notes
 
 - App was built for education purpose none of this code in commercial use
-- App structure does not reflect my full potential in flutter and I am still a noob
+- App structure does not reflect my full potential in flutter and I am still a noob in flutter
 - This app uses only location service and do not collect data at all from my side
 - Icon for this app is from <https://www.pinterest.com/pin/465700417716520918/>
 - Weather API is OpenWeather API <https://home.openweathermap.org/>
