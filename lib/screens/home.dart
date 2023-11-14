@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_app/models/weather_model.dart';
@@ -34,11 +35,10 @@ class _HomeState extends State<Home> {
 
     loc.requestPermission().then((accepted) {
       if (accepted) {
-        setState(() {
-          currentStatus = "Getting weather data in your location";
-        });
-
         loc.getLocation().then((value) async {
+          setState(() {
+            currentStatus = "Getting weather data in your location";
+          });
           // ignore: no_leading_underscores_for_local_identifiers
           var _street = await loc.getLocationLocality(
               lat: value.latitude, lon: value.longitude);
@@ -85,10 +85,24 @@ class _HomeState extends State<Home> {
     });
   }
 
+  void handleInit() {
+    (Connectivity().checkConnectivity()).then((value) {
+      if (value == ConnectivityResult.none) {
+        setState(() {
+          loading = false;
+          error = true;
+          errorMsg = "Please connect to network and retry";
+        });
+      } else {
+        handleRequest();
+      }
+    });
+  }
+
   @override
   void initState() {
     super.initState();
-    handleRequest();
+    handleInit();
   }
 
   @override

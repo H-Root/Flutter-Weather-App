@@ -14,6 +14,7 @@ class LocationService {
       desiredAccuracy: LocationAccuracy.high,
       timeLimit: const Duration(seconds: 30),
     );
+
     return currentLocation;
   }
 
@@ -27,7 +28,6 @@ class LocationService {
 
       return getLocationName[0].locality ?? "Location Unknown";
     } catch (e) {
-      print(e);
       return "Unknown Location";
     }
   }

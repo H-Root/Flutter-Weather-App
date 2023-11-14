@@ -1,6 +1,6 @@
 # flutter-weather-app
 
-My first app using flutter includes some features like fetching using some native mobile APIs (location)
+My first app using flutter includes some features like fetching using some native mobile APIs (location, network)
 
 ## Notes
 
@@ -10,3 +10,7 @@ My first app using flutter includes some features like fetching using some nativ
 - Icon for this app is from <https://www.pinterest.com/pin/465700417716520918/>
 - Weather API is OpenWeather API <https://home.openweathermap.org/>
 - In order to run this app you need to create your own key from the API provider and create .env file with the key provided in .local.env and set your key to the key you created
+
+## Todos
+
+- Refactor Code
