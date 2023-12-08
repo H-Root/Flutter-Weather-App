@@ -14,3 +14,12 @@ My first app using flutter includes some features like fetching using some nativ
 ## Todos
 
 - Refactor Code
+- Add getting weather by typing location name
+- Add multi location support through swiping screens
+- Add charts for next week forecast
+- Save data temporarily and update on request and on intervals 
+
+## To learn
+
+- Notification
+- How to persist data with flutter HiveDB/SQLite
